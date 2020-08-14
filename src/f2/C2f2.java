@@ -40,6 +40,9 @@ public class C2f2 {
 
 			System.out.println("Ingrese su Usuario: ");
 			usuarioIngre = Leer.next();
+			System.out.println("Ingrese Password: ");
+			claveIngre = Leer.nextInt();
+			
 
 
 			/*b)Comprobar usuario y contraseña.*/
@@ -47,60 +50,49 @@ public class C2f2 {
 			boolean ban = false;
 
 			for (i=0; i<user.length; i++) {
-				if (usuarioIngre.equals(user[i])) {
+				if (usuarioIngre.equals(user[i])&&claveIngre==pass [i]) { 
 					ban=true;
 				}}
 			if (ban == true) {
 					/*c)Dar la bienvenida al usuario cuando el login sea exitoso.*/
-					System.out.println("Usuario ***C O R R E C T O***");
+					System.out.println("Usuario y contraseña son: ***C O R R E C T O S***");
+					
+					System.out.println(" ***BIENVENIDO***// Login ***C O R R E C T O***");
+					System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+					System.out.println("<<<<Receuerde que por seguridad debe cambiar su contraseña>>>>");
+					System.out.println("Si desea cambiar su contraseña precione 1, en caso contrario 0");
+					int eleccion= Leer.nextInt();
+						if (eleccion==1) {
+							System.out.println("Ingrese su nueva clave");
+							nuevaClave =Leer.nextInt();
+							System.out.println("Vuelva ingresar la nueva clave");
+							int nuevaClave1 = Leer.nextInt();
+								if (nuevaClave==nuevaClave1) {
+									System.out.println("Su clave se cambio correctamente");
+										for (i=0; i<user.length; i++) {
+											if (usuarioIngre.equals(user[i])) {
+											
+												pass[i]=nuevaClave;
+												System.out.println("Su nueva contraseña es: "+pass[i]);
+										}}
+								}else {
+									System.out.println("no coinciden la nueva clave con su confirmacion");
+									System.out.println("Vuelva a intentar");
+								}
+							
+						}else {
+							System.out.println("Se aconseja que en su proxima visita cambie su clave poe seguridad. Gracias");
+						}
+					
+					
+					
 				}else {
-					System.out.println("Usuario ***I N C O R R E C T O***");
+					System.out.println("Usuario y/o contraseña ***I N C O R R E C T O***");
 					System.out.println("Vuelva a intentar");
 
 				}
 
-			boolean bandera = false;
-			int k;
-			if (ban==true) {
-				System.out.println("Ingrese Password: ");
-				claveIngre = Leer.nextInt();
-
-
-			for (k=0; k<pass.length; k++) {
-				if (claveIngre == (pass[k])) {
-					bandera = true;
-				}}
-			if (bandera == true) {
-					System.out.println(" ***BIENVENIDO***// Login ***C O R R E C T O***");
-			System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
-			System.out.println("<<<<Receuerde que por seguridad debe cambiar su contraseña>>>>");
-			System.out.println("Si desea cambiar su contraseña precione 1, en caso contrario 0");
-			int eleccion= Leer.nextInt();
-				if (eleccion==1) {
-					System.out.println("Ingrese su nueva clave");
-					nuevaClave =Leer.nextInt();
-					System.out.println("Vuelva ingresar la nueva clave");
-					int nuevaClave1 = Leer.nextInt();
-						if (nuevaClave==nuevaClave1) {
-							System.out.println("Su clave se cambio correctamente");
-								for (i=0; i<user.length; i++) {
-									if (usuarioIngre.equals(user[i])) {
-									
-										pass[i]=nuevaClave;
-										System.out.println("Su nueva contraseña es: "+pass[i]);
-								}}
-						}else {
-							System.out.println("no coinciden la nueva clave con su confirmacion");
-							System.out.println("Vuelva a intentar");
-						}
-					
-				}else {
-					System.out.println("Se aconseja que en su proxima visita cambie su clave poe seguridad. Gracias");
-				}
-			}else {
-				/*d) Indicar al usuario cuando el login falló.*/
-					System.out.println(" ***INTENTE NUEVAMENTE*** // Login ***I N C O R R E C T O***");
-			}}
+			
 				
 			}
 
